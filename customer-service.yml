@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: customer-service
+  data:
+    mongodb:
+      database: db_customer
+      host: localhost
+      port: 27017
+server:
+  port: 8080
+message:
+  path-customer: /api/v1/customers
+  path-customerType: /api/v1/customerType
