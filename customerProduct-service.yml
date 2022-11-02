@@ -13,3 +13,12 @@ message:
   path-customerResponse: /api/v1/customers/
   path-productDomain: localhost:8081
   path-productResponse: /api/v1/products/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ms-discovery:8889/eureka/

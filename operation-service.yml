@@ -9,3 +9,12 @@ server:
 message:
   path-operation: /api/v1/operations
   path-operationType: /api/v1/operationTypes
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ms-discovery:8889/eureka/
