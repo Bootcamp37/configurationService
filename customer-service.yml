@@ -3,9 +3,7 @@ spring:
     name: customer-service
   data:
     mongodb:
-      database: db_customer
-      host: db_customer
-      port: 27017
+      uri: mongodb://db_customer:27017/db_customer
 server:
   port: 8080
 message:

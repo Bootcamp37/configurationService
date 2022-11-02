@@ -3,9 +3,7 @@ spring:
     name: payment-service
   data:
     mongodb:
-      database: db_payment
-      host: db_payment
-      port: 27017
+      uri: mongodb://db_payment:27017/db_payment
 server:
   port: 8085
 message:

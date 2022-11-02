@@ -3,9 +3,7 @@ spring:
     name: operation-service
   data:
     mongodb:
-      database: db_operation
-      host: db_operation
-      port: 27017
+      uri: mongodb://db_operation:27017/db_operation
 server:
   port: 8083
 message:

@@ -3,9 +3,7 @@ spring:
     name: shopping-service
   data:
     mongodb:
-      database: db_shopping
-      host: db_shopping
-      port: 27017
+      uri: mongodb://db_shopping:27017/db_shopping
 server:
   port: 8084
 message:
