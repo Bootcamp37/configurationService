@@ -4,7 +4,7 @@ spring:
   data:
     mongodb:
       database: db_customer
-      host: localhost
+      host: db_customer
       port: 27017
 server:
   port: 8080

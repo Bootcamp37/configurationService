@@ -4,8 +4,8 @@ spring:
   data:
     mongodb:
       database: db_shopping
-      host: localhost
-      port: 27021
+      host: db_shopping
+      port: 27017
 server:
   port: 8084
 message:

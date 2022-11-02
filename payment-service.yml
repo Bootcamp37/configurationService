@@ -4,8 +4,8 @@ spring:
   data:
     mongodb:
       database: db_payment
-      host: localhost
-      port: 27022
+      host: db_payment
+      port: 27017
 server:
   port: 8085
 message:

@@ -4,8 +4,8 @@ spring:
   data:
     mongodb:
       database: db_product
-      host: localhost
-      port: 27018
+      host: db_product
+      port: 27017
 server:
   port: 8081
 message:
