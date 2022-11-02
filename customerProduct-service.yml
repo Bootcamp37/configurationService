@@ -1,24 +1,33 @@
-spring:
-  application:
-    name: customerProduct-service
-  data:
-    mongodb:
-      uri: mongodb://db_customerProduct:27017/db_customerProduct
-server:
-  port: 8082
-message:
-  path-customerProductActives: /api/v1/customerActivesProducts
-  path-customerProductPassives: /api/v1/customerPassivesProducts
-  path-customerDomain: localhost:8080
-  path-customerResponse: /api/v1/customers/
-  path-productDomain: localhost:8081
-  path-productResponse: /api/v1/products/
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
 eureka:
   client:
     service-url:
       defaultZone: http://ms-discovery:8889/eureka/
+management:
+  endpoint:
+    web:
+      exposure:
+        include: "*"
+message:
+  path-customerProductActives: /api/v1/customerActivesProducts
+  path-customerProductPassives: /api/v1/customerPassivesProducts
+  path-customerDomain: http://ms-customer:8080
+  path-customerResponse: /api/v1/customers/
+  path-productDomain: http://ms-product:8081
+  path-productResponse: /api/v1/products/
+resilience4j:
+  circuitbreaker:
+    instances:
+      ms-customer:
+        register-health-indicator: true
+        event-consumer-buffer-size: 10
+        failure-rate-threshold: 50
+        minimumNumberOfCalls: 5
+        automatic-transition-from-open-to-half-open-enabled: true
+        waitDurationInOpenState: 2s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+spring:
+  data:
+    mongodb:
+      uri: mongodb://db_customerProduct:27017/db_customerProduct
