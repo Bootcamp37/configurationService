@@ -1,20 +1,18 @@
-spring:
-  application:
-    name: product-service
-  data:
-    mongodb:
-      uri: mongodb://db_product:27017/db_product
-server:
-  port: 8081
-message:
-  path-product: /api/v1/products
-  path-productType: /api/v1/productType
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ms-discovery:8889/eureka/
 management:
   endpoints:
     web:
       exposure:
         include: "*"
-eureka:
-  client:
-    service-url:
-      defaultZone: http://ms-discovery:8889/eureka/
+message:
+  path-product: /api/v1/products
+  path-productType: /api/v1/productType
+server:
+  port: 8080
+spring:
+  data:
+    mongodb:
+      uri: mongodb://db_product:27017/db_product

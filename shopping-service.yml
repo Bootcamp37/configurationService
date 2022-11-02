@@ -1,19 +1,33 @@
-spring:
-  application:
-    name: shopping-service
-  data:
-    mongodb:
-      uri: mongodb://db_shopping:27017/db_shopping
-server:
-  port: 8084
-message:
-  path-shopping: /api/v1/shoppings
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
 eureka:
   client:
     service-url:
       defaultZone: http://ms-discovery:8889/eureka/
+management:
+  endpoint:
+    web:
+      exposure:
+        include: "*"
+message:
+  path-shopping: /api/v1/shoppings
+  path-customerProductDomain: http://ms-customerproduct:8080
+  path-get: /api/v1/customerActivesProducts/
+  path-update: /api/v1/customerActivesProducts/update/
+resilience4j:
+  circuitbreaker:
+    instances:
+      ms-customerProduct:
+        register-health-indicator: true
+        event-consumer-buffer-size: 10
+        failure-rate-threshold: 50
+        minimumNumberOfCalls: 5
+        automatic-transition-from-open-to-half-open-enabled: true
+        waitDurationInOpenState: 2s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+server:
+  port: 8080
+spring:
+  data:
+    mongodb:
+      uri: mongodb://db_shopping:27017/db_shopping

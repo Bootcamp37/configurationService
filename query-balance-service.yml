@@ -1,16 +1,45 @@
-spring:
-  application:
-    name: query-balance-service
-server:
-  port: 8086
-message:
-  path-balance: /api/v1/balance
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
 eureka:
   client:
     service-url:
       defaultZone: http://ms-discovery:8889/eureka/
+management:
+  endpoint:
+    web:
+      exposure:
+        include: "*"
+message:
+  path-balance: /api/v1/balance
+  path-customerProductDomain: http://ms-customerproduct:8080
+  path-operationDomain: http://ms-operation:8080
+  path-get-active: /api/v1/customerActivesProducts/
+  path-get-passive: /api/v1/customerPassivesProducts/
+  path-get-operation: /api/v1/operations
+resilience4j:
+  circuitbreaker:
+    instances:
+      ms-customerProduct:
+        register-health-indicator: true
+        event-consumer-buffer-size: 10
+        failure-rate-threshold: 50
+        minimumNumberOfCalls: 5
+        automatic-transition-from-open-to-half-open-enabled: true
+        waitDurationInOpenState: 2s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+      ms-operations:
+        register-health-indicator: true
+        event-consumer-buffer-size: 10
+        failure-rate-threshold: 50
+        minimumNumberOfCalls: 5
+        automatic-transition-from-open-to-half-open-enabled: true
+        waitDurationInOpenState: 2s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+server:
+  port: 8080
+spring:
+  config:
+    import:
+      - optional:configserver:http://ms-configserver:8888

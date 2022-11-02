@@ -11,8 +11,8 @@ message:
   path-customerProductActives: /api/v1/customerActivesProducts
   path-customerProductPassives: /api/v1/customerPassivesProducts
   path-customerDomain: http://ms-customer:8080
+  path-productDomain: http://ms-product:8080
   path-customerResponse: /api/v1/customers/
-  path-productDomain: http://ms-product:8081
   path-productResponse: /api/v1/products/
 resilience4j:
   circuitbreaker:
@@ -27,6 +27,8 @@ resilience4j:
         permittedNumberOfCallsInHalfOpenState: 3
         slidingWindowSize: 10
         slidingWindowType: COUNT_BASED
+server:
+  port: 8080
 spring:
   data:
     mongodb:

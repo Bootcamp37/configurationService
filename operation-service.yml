@@ -1,20 +1,34 @@
-spring:
-  application:
-    name: operation-service
-  data:
-    mongodb:
-      uri: mongodb://db_operation:27017/db_operation
-server:
-  port: 8083
-message:
-  path-operation: /api/v1/operations
-  path-operationType: /api/v1/operationTypes
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
 eureka:
   client:
     service-url:
       defaultZone: http://ms-discovery:8889/eureka/
+management:
+  endpoint:
+    web:
+      exposure:
+        include: "*"
+message:
+  path-operation: /api/v1/operations
+  path-operationType: /api/v1/operationTypes
+  path-customerProductDomain: http://ms-customerproduct:8080
+  path-get: /api/v1/customerPassivesProducts/
+  path-update: /api/v1/customerPassivesProducts/update/
+resilience4j:
+  circuitbreaker:
+    instances:
+      ms-customerProduct:
+        register-health-indicator: true
+        event-consumer-buffer-size: 10
+        failure-rate-threshold: 50
+        minimumNumberOfCalls: 5
+        automatic-transition-from-open-to-half-open-enabled: true
+        waitDurationInOpenState: 2s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+server:
+  port: 8080
+spring:
+  data:
+    mongodb:
+      uri: mongodb://db_operation:27017/db_operation

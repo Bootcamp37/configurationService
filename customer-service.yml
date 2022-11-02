@@ -1,20 +1,18 @@
-spring:
-  application:
-    name: customer-service
-  data:
-    mongodb:
-      uri: mongodb://db_customer:27017/db_customer
-server:
-  port: 8080
-message:
-  path-customer: /api/v1/customers
-  path-customerType: /api/v1/customerType
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
 eureka:
   client:
     service-url:
       defaultZone: http://ms-discovery:8889/eureka/
+management:
+  endpoint:
+    web:
+      exposure:
+        include: "*"
+message:
+  path-customer: /api/v1/customers
+  path-customerType: /api/v1/customerType
+server:
+  port: 8080
+spring:
+  data:
+    mongodb:
+      uri: mongodb://db_customer:27017/db_customer
