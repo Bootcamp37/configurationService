@@ -23,7 +23,7 @@ resilience4j:
         failure-rate-threshold: 50
         minimumNumberOfCalls: 10
         automatic-transition-from-open-to-half-open-enabled: true
-        waitDurationInOpenState: 5s
+        waitDurationInOpenState: 10s
         permittedNumberOfCallsInHalfOpenState: 6
         slidingWindowSize: 20
         slidingWindowType: COUNT_BASED
@@ -33,7 +33,7 @@ resilience4j:
         failure-rate-threshold: 50
         minimumNumberOfCalls: 10
         automatic-transition-from-open-to-half-open-enabled: true
-        waitDurationInOpenState: 5s
+        waitDurationInOpenState: 10s
         permittedNumberOfCallsInHalfOpenState: 6
         slidingWindowSize: 20
         slidingWindowType: COUNT_BASED
