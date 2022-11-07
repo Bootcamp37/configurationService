@@ -9,10 +9,10 @@ management:
         include: "*"
 message:
   path-wireTransfer: /api/v1/wiretransfer
-  path-customerProductDomain: http://ms-customerproduct:8082
+  path-customerProductDomain: http://ms-customerproduct:8080
   path-get: /api/v1/customerPassivesProducts/
   path-update: /api/v1/customerPassivesProducts/update/
-  path-operationDomain: http://ms-operation:8083
+  path-operationDomain: http://ms-operation:8080
   path-post: /api/v1/customerPassivesProducts
 resilience4j:
   circuitbreaker:
