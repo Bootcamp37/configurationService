@@ -10,7 +10,7 @@ management:
 message:
   path-operation: /api/v1/operations
   path-operationType: /api/v1/operationTypes
-  path-customerProductDomain: http://ms-customerproduct:8080
+  path-customerProductDomain: https://ms-customerproduct.azurewebsites.net
   path-get: /api/v1/customerPassivesProducts/
   path-update: /api/v1/customerPassivesProducts/update/
 resilience4j:
