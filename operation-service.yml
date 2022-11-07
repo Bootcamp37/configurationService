@@ -31,4 +31,4 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://db_operation:27017/db_operation
+      uri: mongodb+srv://admin:5K8yj70q4RpuiBSE@bootcamp37.anglhbu.mongodb.net/db_operation

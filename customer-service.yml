@@ -15,4 +15,4 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://db_customer:27017/db_customer
+      uri: mongodb+srv://admin:5K8yj70q4RpuiBSE@bootcamp37.anglhbu.mongodb.net/db_customer

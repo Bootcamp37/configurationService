@@ -30,4 +30,4 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://db_shopping:27017/db_shopping
+      uri: mongodb+srv://admin:5K8yj70q4RpuiBSE@bootcamp37.anglhbu.mongodb.net/db_shopping
